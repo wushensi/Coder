@@ -1,3 +1,4 @@
+from functools import reduce
 # 默认值参数
 # 我们创建一个函数，定义参数中一个或多个赋予默认值后，我们可以使用比允许的更少的参数去调用此函数
 
@@ -66,3 +67,56 @@ key_fun(voltage=1000000, action='VOOOOOM')             # 2 keyword arguments
 key_fun(action='VOOOOOM', voltage=1000000)             # 2 keyword arguments
 key_fun('a million', 'bereft of life', 'jump')         # 3 positional arguments
 key_fun('a thousand', state='pushing up the daisies')  # 1 positional, 1 keyword
+
+
+#高阶函数，函数被当做一个参数参与运算
+def high_func(f, arr):
+    return [f(x) for x in arr]
+
+def square(n):
+    return n ** 2
+
+print(type(high_func(square,range(10))))
+
+#map 就是一个高阶函数 类似high_func
+print(list(map(square,range(10))))
+
+#使用匿名函数，可以传入多个序列
+lamMap = map(lambda x:x * 3,range(10))
+print(list(lamMap))
+
+#reduce 累加
+
+result = reduce(lambda x,y:x+y,[1,2,3,4,5])
+
+print(result)
+
+print(reduce(lambda x,y:x+y,['1','2','3','4','5'],'the number is:'))
+
+#filter 过滤器
+
+def boy(n):
+    if n % 2 == 0:
+        return True
+    return False
+
+filterList=filter(boy,range(20))
+
+print(type(filterList))
+
+print(list(filterList))
+
+#自定义函数
+filterList2 = filter(lambda n:n % 2 ==0,range(20))
+
+print(list(filterList2))
+
+#排序
+list01 = [5, -1, 3, 6, -7, 8, -11, 2]
+list02 = ['apple', 'pig', 'monkey', 'money']
+
+print(sorted(list01))
+
+print(sorted(list01,reverse=True))
+
+print(sorted(list01,key=abs))
