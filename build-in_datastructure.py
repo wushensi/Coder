@@ -232,5 +232,65 @@ print(type(l4))
 for item in l4:
     print(item)
 
+#集合是由不重复元素组成的无序的集
+#{} 大括号 集合 空集合 使用set() 空{} 是字典； 字典也使用大括号，使用键值对方式
+#[] 中括号 列表
+#() 小括号 元组
+
+s1 = {'hello','hello','a',1,5}
+s2 = set()
+s3 = {}
+
+print(s1)
+print(type(s2))
+print(type(s3))
+
+# 基本操作 
+s1.add('world')
+#s1.update({1:2,10:20})
+s1.update([100,200],[300,3000])
+s1.update((5,6),(50,60))
+print(s1)
+
+# remove discard 
+# #pop是随机删除
+
+#s1.remove(10000)
+#s1.discard(10000) #区别 不存在的元素清理不会报异常 
+
+s1.remove('world')
+
+print(s1)
+
+print('world' in s1)
+
+set_a=set('abcdedf')
+set_b=set('abc')
+
+print(set_a)
+print(set_b)
+#print(set_a - set_b)
+#
+#print(set_a | set_b)
+#
+#print(set_a & set_b)
+#
+#print(set_a ^ set_b)
+#
+# 集合推导式
+a={ x for x in 'abradec' if x not in 'abc'}
+
+print(a)
+
+# 差集计算
+print(set_a.difference(set_b))
 
 
+# 方法用于移除两个集合中都存在的元素。 改变原生set_a 无返回值
+print(set_a.difference_update(set_b))
+print(set_a)
+
+# 交集运算 intersection 方法用于返回两个或更多集合中都包含的元素，即交集，返回一个新的集合
+print(set_a.intersection(set_b))
+
+# intersection_update() 方法不同于 intersection() 方法，因为 intersection() 方法是返回一个新的集合，而 intersection_update() 方法是在原始的集合上移除不重叠的元素。

@@ -1,0 +1,22 @@
+#https://mp.weixin.qq.com/s/OpkcjU6uCkCdDLx3Y9aGWg
+0x1 完成基础复习 巩固 
+规划5天 
+1、基本数据类型（略）
+2、数据结构、列表；元组、字符串、字典
+3、包管理（模块和包）
+4、python 类和对象
+5、集合
+
+0x2 常用模块学习
+
+
+0X3 python爬虫基础
+
+
+0x4 python 可视化 & web
+
+
+0x5 python 数据库操作
+
+
+0x6 python 办公
