@@ -100,3 +100,55 @@ shutil.copyfile('basic IO.py','D:\\六壬网安\\1103\\IO.py')
 #错误输出重定向和终止程序
 sys.stderr.write('Warning, log file not found starting a new one\n')
 
+
+# reprlib 模块 提供了一个定制化版本的repr()函数
+from reprlib import recursive_repr
+class MyList(list):
+  @recursive_repr(fillvalue="---")
+  def __repr__(self):
+      return '<' + '|'.join(map(repr,self)) + '>'
+m = MyList('abc')
+m.append(m)
+m.append('x')
+m.append('a')
+print(m)
+
+# 地柜实例演示
+import reprlib
+a = [1,2,3,[4,5,5,5,5,1,1],6,7]
+reprlib.aRepr.maxlevel = 3
+print(reprlib.repr(a))
+
+import struct
+
+with open('D:\\工作日志\\2020年\\12月份\\1218\\附件.zip', 'rb') as f:
+    data = f.read()
+
+start = 0
+for i in range(3):                      # show the first 3 file headers
+    start += 14
+    fields = struct.unpack('<IIIHH', data[start:start+16])
+    crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
+    start += 16
+    filename = data[start:start+filenamesize]
+    start += filenamesize
+    extra = data[start:start+extra_size]
+    print(filename, hex(crc32), comp_size, uncomp_size)
+
+    start += extra_size + comp_size     # skip to the next header
+
+import bisect
+scores = [(100,'perl'),(200,'dephin'),(300,'C')]
+bisect.insort(scores,(50,'JS'))
+print(scores)
+
+'''
+Python 日志模块 logging 模块提供功能齐全且灵活的日志记录系统。在最简单的情况下，日志消息被发送到文件或 sys.stderr。
+日志系统可以直接从 Python 配置，也可以从用户配置文件加载，以便自定义日志记录而无需更改应用程序。
+'''
+import logging
+logging.debug('debuging information')
+logging.info('informational message')
+logging.warning('warning config file not found')
+logging.error('Error occurred')
+logging.critical('critical error  shutting down')
