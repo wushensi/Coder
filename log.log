@@ -1,0 +1,5 @@
+2021-11-18 17:51:42,695 - python built-in logger - DEBUG - debug message
+2021-11-18 17:51:42,695 - python built-in logger - INFO - info message
+2021-11-18 17:51:42,695 - python built-in logger - WARNING - warn message
+2021-11-18 17:51:42,695 - python built-in logger - ERROR - error message
+2021-11-18 17:51:42,695 - python built-in logger - CRITICAL - critical message
